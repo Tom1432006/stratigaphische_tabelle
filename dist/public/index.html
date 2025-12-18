@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stratigraphische Tabelle</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="jquery.min.js"></script>
+    <script src="JavaScript/main.js"></script>
+</head>
+<body>
+    <main>
+        <div class="info">
+            <h1 class="title">Die (vereinfachte) stratigraphische Tabelle</h1>
+            <p>
+                <b>Anleitung:</b><br>
+                Hier kannst du die vereinfachte stratigraphische Tabelle auswendig lernen. Es werden einzeln die verschiedenen Begriffe abgefragt, und du musst auf das Feld tippen, zu welchem der Begriff gehört. Du hast 3 Versuche pro Begriff, bekommst jedoch mehr Punkte, je weniger Versuche du benötigst. (3P für einen Versuch, 2P für 2 Versuche, 1P für 3 Versuche). Am Ende wird deine Punktzahl angezeigt. Viel Spaß :)
+            </p>
+        </div>
+        <h1>Wann war <span id="name"></span>?</h1>
+        <div class="mobile_table">
+            <table class="Erdzeitalter_top">
+                <td class="guessable hadaikum" id="hadaikum">Hadaikum</td>
+                <td class="guessable archaikum" id="archaikum">Archaikum</td>
+                <td class="guessable proterozoikum" id="proterozoikum">Proterozoikum</td>
+            </table>
+            <table class="Erdzeitalter">
+                <tr>
+                    <td class="b year" colspan="6">~540Ma</td>
+                    <td class="b year" colspan="3">~250Ma</td>
+                    <td class="b year" colspan="3">~66Ma</td>
+                </tr>
+                <tr>
+                    <td class="guessable phanerozoikum" colspan="12" id="phanerozoikum">Phanerozoikum</td>
+                </tr>
+                <tr>
+                    <td class="guessable paläozoikum" colspan="6" id="paläozoikum">Paläozoikum</td>
+                    <td class="guessable mesozoikum" colspan="3" id="mesozoikum">Mesozoikum</td>
+                    <td class="guessable känozoikum" colspan="3" id="känozoikum" class="b">Känozoikum</td>
+                </tr>
+                <tr class="vertical">
+                    <td class="guessable kambrium" id="kambrium">Kambrium</td>
+                    <td class="guessable ordovizium" id="ordovizium">Ordovizium</td>
+                    <td class="guessable silur" id="silur">Silur</td>
+                    <td class="guessable devon" id="devon">Devon</td>
+                    <td class="guessable karbon" id="karbon">Karbon</td>
+                    <td class="guessable perm" id="perm">Perm</td>
+                    <td class="guessable trias" id="trias">Trias</td>
+                    <td class="guessable jura" id="jura">Jura</td>
+                    <td class="guessable kreide" id="kreide">Kreide</td>
+                    <td class="guessable paläogen" id="paläogen">Paläogen</td>
+                    <td class="b guessable neogen" id="neogen">Neogen</td>
+                    <td class="b guessable quatär" id="quatär">Quatär</td>
+                </tr>
+            </table>
+        </div>
+        <div class="desktop_table">
+            <table class="Erdzeitalter">
+                <tr>
+                    <td></td>
+                    <td colspan="3"></td>
+                    <td class="b year" colspan="6">~540Ma</td>
+                    <td class="b year" colspan="3">~250Ma</td>
+                    <td class="b year" colspan="3">~66Ma</td>
+                </tr>
+                <tr>
+                    <td class="b">Äon(them)</td>
+                    <td class="guessable hadaikum" id="hadaikum">Hadaikum</td>
+                    <td class="guessable archaikum" id="archaikum">Archaikum</td>
+                    <td class="guessable proterozoikum" id="proterozoikum">Proterozoikum</td>
+                    <td class="guessable phanerozoikum" colspan="12" id="phanerozoikum">Phanerozoikum</td>
+                </tr>
+                <tr>
+                    <td class="b">Ära(them)</td>
+                    <td colspan="3"></td>
+                    <td class="guessable paläozoikum" colspan="6" id="paläozoikum">Paläozoikum</td>
+                    <td class="guessable mesozoikum" colspan="3" id="mesozoikum">Mesozoikum</td>
+                    <td class="guessable känozoikum" colspan="3" id="känozoikum" class="b">Känozoikum</td>
+                </tr>
+                <tr class="vertical">
+                    <td class="b no_vtl">Periode /<br>System</td>
+                    <td colspan="3"></td>
+                    <td class="guessable kambrium" id="kambrium">Kambrium</td>
+                    <td class="guessable ordovizium" id="ordovizium">Ordovizium</td>
+                    <td class="guessable silur" id="silur">Silur</td>
+                    <td class="guessable devon" id="devon">Devon</td>
+                    <td class="guessable karbon" id="karbon">Karbon</td>
+                    <td class="guessable perm" id="perm">Perm</td>
+                    <td class="guessable trias" id="trias">Trias</td>
+                    <td class="guessable jura" id="jura">Jura</td>
+                    <td class="guessable kreide" id="kreide">Kreide</td>
+                    <td class="guessable paläogen" id="paläogen">Paläogen</td>
+                    <td class="b guessable neogen" id="neogen">Neogen</td>
+                    <td class="b guessable quatär" id="quatär">Quatär</td>
+                </tr>
+            </table>
+        </div>
+        <div id="result">
+            <h1>Du hast <span id="points"></span> von 57 <Punkten></Punkten> erreicht.</h1>
+            <button id="new_game">nochmal</button>
+        </div>
+    </main>
+    <footer>
+        <hr>
+        <a href="http://tom.reinisch.net" target="_blank">&copy Tom Reinisch</a>
+    </footer>
+</body>
+</html>

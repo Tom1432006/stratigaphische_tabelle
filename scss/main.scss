@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+main{
+    max-width: 780px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer{
+    margin-top: 20px;
+    width: 100%;
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    hr{
+        width: 100%;
+    }
+}
+
+.title, .info{
+    margin-bottom: 20px;
+}
+
+h1{
+    font-size: 2em;
+    *{
+        font-size: 1em;
+    }
+}
+p{
+    font-size: 1.2em;
+    b{
+        font-size: 1em;
+    }
+}
+
+span#name{
+    font-style: italic;
+}
+
+#result{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &.hidden{
+        display: none;
+    }
+}
+
+button#new_game{
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    background: hsl(0, 0%, 60%);
+    border: none;
+    cursor: pointer;
+}
+
+table{
+    td{
+        padding: 0.5em;
+        color: #fff;    
+    }
+    td.b{
+        color: #000;
+    }
+    td.hidden{
+        color: #0000;
+    }
+    td.orange{
+        color: hsl(19, 100%, 35%);
+    }
+    td.wrong{
+        color: #f00;
+    }
+    td.guessable:not(.guessed){
+        user-select: none;
+        cursor: pointer;
+    }
+
+    tr.vertical td:not(.no_vtl){
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+    }
+}
+
+.desktop_table{
+    .year{
+        transform: translateX(-2em);
+    }
+
+    @media (max-width: 800px){
+        tr td:first-child{
+            display: none;
+        }
+    }
+}
+
+.mobile_table{
+    display: none;
+}
+
+@media (max-width: 700px){
+    .desktop_table{
+        display: none;
+    }
+    .mobile_table{
+        display: block;
+    }
+}
+
+#hadaikum{
+    background: #b41e8d;
+}
+#archaikum{
+    background: #ed028c;
+}
+#proterozoikum{
+    background: #f05978;
+}
+#phanerozoikum{
+    background: #8fd7ed;
+}
+#paläozoikum{
+    background: #9dc2a6;
+}
+#mesozoikum{
+    background: #47c7eb;
+}
+#känozoikum{
+    background: #f4ed2f;
+}
+#kambrium{
+    background: #8aaa78;
+}
+#ordovizium{
+    background: #00a78e;
+}
+#silur{
+    background: #b2ddca;
+}
+#devon{
+    background: #ce9c5a;
+}
+#karbon{
+    background: #68aeb1;
+}
+#perm{
+    background: #e76549;
+}
+#trias{
+    background: #8e52a1;
+}
+#jura{
+    background: #00b9e7;
+}
+#kreide{
+    background: #85c86f
+}
+#paläogen{
+    background: #f9a86f;
+}
+#neogen{
+    background: #ffdd2b;
+}
+#quatär{
+    background: #fff89a;
+}
