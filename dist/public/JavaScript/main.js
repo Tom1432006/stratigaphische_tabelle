@@ -43,13 +43,26 @@ let name_index = 0;
 let guesses = 0;
 let points = 0;
 
+let game_mode = 0; // 0: "normal" mode; 1: writing mode
+
 // load the new name for the new guess
 function loadNewName(){
-    $("#name").html(names[name_index]);
+    // when all the name have been guessed, show points
+    if(name_index == names.length){
+        $("#points").html(points);
+        $("#result").removeClass("hidden");
+        return;
+    }
+
+    if(game_mode == 0){
+        $("#name").html(names[name_index]);
+    }else if(game_mode == 1){
+        $(".guessable").removeClass("active");
+        $("." + names[name_index].toLowerCase()).addClass("active");
+    }
     
     // reset guesses
     guesses = 0;
-    console.log("lng:" + guesses);
 }
 
 function start_game(){
@@ -67,7 +80,6 @@ function start_game(){
     $(".guessable").addClass("hidden");
 
     $(".guessable").on("click", function(){
-        console.log("sk: " + guesses);
         // make the guess
         let guessed_name = this.id;
 
@@ -92,7 +104,6 @@ function start_game(){
             loadNewName();
         }else{ // wrong guess
             guesses += 1;
-            console.log("wg: " + guesses);
 
             // after three guesses, reveal the answer and load the new name
             if(guesses == 3){
@@ -105,20 +116,12 @@ function start_game(){
                 loadNewName();
             }
         }
-
-        // when all the name have been guessed, show points
-        if(name_index == names.length){
-            $("#points").html(points);
-            $("#result").removeClass("hidden");
-        }
-
-        console.log("ek: " + guesses);
     })
 
     loadNewName();
 }
 
-function restart(e){
+function restart(){
     console.log("restart");
 
     // reset all variables
@@ -130,18 +133,89 @@ function restart(e){
     $("#result").addClass("hidden");
 
     // hide all the names
-    console.log("hide all names please");
     $(".guessable").addClass("hidden");
     $(".guessable").removeClass("guessed wrong orange");
-    console.log("hide all names");
 
     shuffle(names);
     loadNewName();
-    e.stopPropagation();
+}
+
+function change_mode(){
+    game_mode = (game_mode + 1) % 2;
+    console.log("change mode to " + game_mode);
+
+    if(game_mode == 0){
+        $(".mode_one").removeClass("hidden");
+        $(".mode_two").addClass("hidden");
+        $("#change_mode").html("schreib Modus");
+        $(".guessable").removeClass("active");
+    }else if(game_mode == 1){
+        $(".mode_one").addClass("hidden");
+        $(".mode_two").removeClass("hidden");
+        $("#change_mode").html("tipp Modus");
+    }
+
+    restart();
+}
+
+function enter_guess(){
+    let word = $("#name_input").val();
+
+    if(word.toLowerCase() == names[name_index].toLowerCase()){
+        console.log("Congratulations, you guessed correctly");
+        // make guessed name visible
+        $("."+names[name_index].toLowerCase()).removeClass("hidden");
+        $("."+names[name_index].toLowerCase()).addClass("guessed");
+        
+        if(guesses != 0){
+            $("."+names[name_index].toLowerCase()).addClass("orange");
+        }
+
+        // add points
+        points += 3 - guesses;
+        console.log("Current Points: " + points.toString());
+        
+        // increase name index to load a new name
+        name_index+=1;
+        loadNewName();
+    }else{ // wrong guess
+        guesses += 1;
+        console.log("wg: " + guesses);
+
+        // after three guesses, reveal the answer and load the new name
+        if(guesses == 3){
+            $("." + names[name_index].toLowerCase()).removeClass("hidden");
+            $("." + names[name_index].toLowerCase()).addClass("guessed");
+            $("." + names[name_index].toLowerCase()).off("click"); // remove event handler
+            $("." + names[name_index].toLowerCase()).addClass("wrong");
+
+            name_index += 1;
+            loadNewName();
+        }
+    }
+
+    // remove the entered guess from the input field
+    $("#name_input").val("");
 }
 
 window.onload = function(){
     start_game();
 
-    $("#new_game").on("click", function(e){restart(e);});
+    if(game_mode == 0){
+        $(".mode_one").removeClass("hidden");
+        $(".mode_two").addClass("hidden");
+        $(".guessable").removeClass("active");
+    }else if(game_mode == 1){
+        $(".mode_one").addClass("hidden");
+        $(".mode_two").removeClass("hidden");
+    }
+
+    $("#change_mode").on("click", function(e){e.preventDefault();change_mode();})
+    $("#new_game").on("click", function(){restart();});
+    $("#send_input").on("click", function(){enter_guess();})
+    $("#name_input").on("keypress", function(e){
+        if(e.which == 13){ // enter pressed
+            enter_guess();
+        }
+    })
 };

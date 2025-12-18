@@ -14,10 +14,13 @@
             <h1 class="title">Die (vereinfachte) stratigraphische Tabelle</h1>
             <p>
                 <b>Anleitung:</b><br>
-                Hier kannst du die vereinfachte stratigraphische Tabelle auswendig lernen. Es werden einzeln die verschiedenen Begriffe abgefragt, und du musst auf das Feld tippen, zu welchem der Begriff gehört. Du hast 3 Versuche pro Begriff, bekommst jedoch mehr Punkte, je weniger Versuche du benötigst. (3P für einen Versuch, 2P für 2 Versuche, 1P für 3 Versuche). Am Ende wird deine Punktzahl angezeigt. Viel Spaß :)
+                Hier kannst du die vereinfachte stratigraphische Tabelle auswendig lernen. Es werden einzeln die verschiedenen Begriffe abgefragt, und du musst auf das Feld tippen, zu welchem der Begriff gehört oder unten eingeben, welcher Begriff in das Feld gehört. Du hast 3 Versuche pro Begriff, bekommst jedoch mehr Punkte, je weniger Versuche du benötigst. (3P für einen Versuch, 2P für 2 Versuche, 1P für 3 Versuche). Am Ende wird deine Punktzahl angezeigt. Viel Spaß :)
             </p>
         </div>
-        <h1>Wann war <span id="name"></span>?</h1>
+
+        <a id="change_mode" href="#">schreib Modus</a>
+
+        <h1 class="mode_one">Wann war <span id="name"></span>?</h1>
         <div class="mobile_table">
             <table class="Erdzeitalter_top">
                 <td class="guessable hadaikum" id="hadaikum">Hadaikum</td>
@@ -94,6 +97,9 @@
                     <td class="b guessable quatär" id="quatär">Quatär</td>
                 </tr>
             </table>
+        </div>
+        <div class="mode_two" id="input">
+            <p>Das ist: </p><span class="gap"></span><input type="text" id="name_input"><button id="send_input">senden</button>
         </div>
         <div id="result">
             <h1>Du hast <span id="points"></span> von 57 Punkten erreicht.</h1>

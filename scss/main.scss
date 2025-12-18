@@ -32,8 +32,11 @@ footer{
         width: 100%;
     }
 }
+*.hidden:not(td){
+    display: none !important;
+}
 
-.title, .info{
+.title, .info, #change_mode{
     margin-bottom: 20px;
 }
 
@@ -74,6 +77,15 @@ button#new_game{
     cursor: pointer;
 }
 
+#input{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    .gap{
+        width: 20px;
+    }
+}
+
 table{
     td{
         padding: 0.5em;
@@ -90,6 +102,9 @@ table{
     }
     td.wrong{
         color: #f00;
+    }
+    td.active{
+        outline: 2px solid #f00;
     }
     td.guessable:not(.guessed){
         user-select: none;
