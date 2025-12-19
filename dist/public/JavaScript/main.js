@@ -217,5 +217,10 @@ window.onload = function(){
         if(e.which == 13){ // enter pressed
             enter_guess();
         }
-    })
+    });
+
+    // split guessable td vertical items for vertical text orientation
+    $("tr.vertical td.guessable").each(function(){
+        this.innerHTML = '<div><span>' + this.innerHTML.split('').join('</span><span>') + '</span></div>';
+    });
 };

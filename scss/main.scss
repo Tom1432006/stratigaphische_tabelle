@@ -111,9 +111,15 @@ table{
         cursor: pointer;
     }
 
-    tr.vertical td:not(.no_vtl){
-        writing-mode: vertical-rl;
-        text-orientation: upright;
+    tr.vertical td.guessable{
+        width: 33px;
+        vertical-align: top;
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+        }
     }
 }
 
